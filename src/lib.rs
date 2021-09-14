@@ -1,13 +1,15 @@
 mod ylist;
 
+use std::collections::LinkedList;
 #[cfg(test)]
 mod tests {
-    use crate::ylist::*;
+    use crate::ylist::YLinkedList;
     #[test]
     fn list_test() {
-        let mut l : YLinkedList<i32> = YLinkedList::new();
-        l.push(32);
-        println!("{:#?}",&l.get_next().get_value()?);
-
+        let mut list = YLinkedList::<i32>::new();
+        for i in 0..5 {
+            list.append(i + 20);
+        }
+        list.print();
     }
 }
